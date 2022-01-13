@@ -2,16 +2,16 @@ clear
 echo "Pilih OS yang ingin anda install / choose your select OS"
 echo
 echo "  1) Windows 2019(Default)"
-echo "  2) Windows 2012"
+echo "  2) Windows 2016"
 echo "  3) Pakai link gz mu sendiri / your own gz link os"
 echo
 echo "  login Acces RDP windows please copy / screenshot"
-echo "  Windows 2019 Username : Adminstrator Password  Botol123456789!"
-echo "  Windows 2012 Username : Adminstrator Password  Nixpoin.com123!"
+echo "  Windows 2019 Username : Adminstrator Password  Sobatdroid19"
+echo "  Windows 2012 Username : Adminstrator Password  Sobatdroid19"
 read -p "Pilih / Select [1]: " PILIHOS
 case "$PILIHOS" in
-1|"") PILIHOS="http://files.nixpoin.com/windows2019DO.gz";;
-2) PILIHOS="http://files.nixpoin.com/windows2012v2.gz";;
+1|"") PILIHOS="https://bit.ly/31TlCIf";;
+2) PILIHOS="https://bit.ly/3yjfHIt";;
 3) read -p "Masukkan Link GZ mu / Your gz URL  : " PILIHOS;;
 *) echo "pilihan salah"; exit;;
 esac
@@ -29,7 +29,7 @@ netsh -c interface ip set address name="Ethernet 2" source=static address=$IP4 m
 netsh -c interface ip add dnsservers name="Ethernet 2" address=1.1.1.1 index=1 validate=no
 netsh -c interface ip add dnsservers name="Ethernet 2" address=1.0.0.1 index=2 validate=no
 EOF
-wget -O- $PILIHOS | gunzip | dd of=/dev/vda bs=3M status=progress
+wget -O- --no-check-certificate $PILIHOS | gunzip | dd of=/dev/vda bs=3M status=progress
 mount.ntfs-3g /dev/vda2 /mnt
 cd "/mnt/ProgramData/Microsoft/Windows/Start Menu/Programs/"
 cd Start* || cd start*; \

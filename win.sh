@@ -29,7 +29,7 @@ netsh -c interface ip set address name="Ethernet 2" source=static address=$IP4 m
 netsh -c interface ip add dnsservers name="Ethernet 2" address=1.1.1.1 index=1 validate=no
 netsh -c interface ip add dnsservers name="Ethernet 2" address=1.0.0.1 index=2 validate=no
 EOF
-wget -O- --no-check-certificate $PILIHOS | gunzip | dd of=/dev/vda bs=3M status=progress
+wget -O- $PILIHOS | gunzip | dd of=/dev/vda bs=3M status=progress
 mount.ntfs-3g /dev/vda2 /mnt
 cd "/mnt/ProgramData/Microsoft/Windows/Start Menu/Programs/"
 cd Start* || cd start*; \
